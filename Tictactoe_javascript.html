@@ -1,0 +1,213 @@
+<html>
+<head>
+    <link rel="icon" href="http://example.com/favicon.png">
+    <style>
+        td {
+    height: 62px;
+    width:80px;
+        }
+        button{
+            width: 80px;
+            height: 60px;
+        }
+    </style>
+</head>
+<body>
+<center>
+    <br/> <br/>
+    <h1>Tic Tac Toe in Javascript</h1>
+    
+<table border="1px" >
+    <tr>
+<td align="center">
+    <button id="1" onclick="play(1)"></button>
+</td>
+<td align="center">
+    <button id="2" onclick="play(2)"></button>
+<h1> </h1>
+</td>
+<td align="center">
+    <button id="3" onclick="play(3)"></button>
+<h1 > </h1>
+</td>
+</tr>
+
+<tr>
+    <td align="center">
+        <button id="4" onclick="play(4)"></button>
+    <h1></h1>
+    </td>
+    <td align="center">
+        <button id="5" onclick="play(5)"></button>
+    <h1></h1>
+    </td>
+    <td align="center">
+        <button id="6" onclick="play(6)"></button>
+    <h1></h1>
+    </td>
+    </tr>
+
+    <tr>
+        <td align="center">
+            <button id="7" onclick="play(7)"></button>
+        <h1></h1>
+        </td>
+        <td align="center">
+            <button id="8" onclick="play(8)"></button>
+        <h1></h1>
+        </td>
+        <td align="center">
+            <button id="9" onclick="play(9)"></button>
+        <h1></h1>
+        </td>
+        </tr>
+</table>
+<br/>
+<button onclick="window.location.reload();">Play Again</button>
+<br/><br/>
+<h2 id="win"></h2>
+<script>
+var c = 0;
+function play(a) {
+    
+    c = c+1;
+    console.log(c);
+    t = isOdd(c);
+    console.log(t);
+    if (t == true){
+    document.getElementById(a).innerHTML = "<h1>X</h1>";
+    }
+    else{
+        document.getElementById(a).innerHTML = "<h1>O</h1>";
+    }
+    isWin();
+    //console.log(w);
+}
+
+
+
+function isWin(){
+    var r1 = document.getElementById("1").innerHTML;
+    var r2 = document.getElementById("2").innerHTML;
+    var r3 = document.getElementById("3").innerHTML;
+    var r4 = document.getElementById("4").innerHTML;
+    var r5 = document.getElementById("5").innerHTML;
+    var r6 = document.getElementById("6").innerHTML;
+    var r7 = document.getElementById("7").innerHTML;
+    var r8 = document.getElementById("8").innerHTML;
+    var r9 = document.getElementById("9").innerHTML;
+
+    console.log(r1);
+    console.log(r2);
+    console.log(r3);
+    console.log(r4);
+    console.log(r5);
+    console.log(r6);
+    console.log(r7);
+    console.log(r8);
+    console.log(r9);
+
+//Horizontal wins of X & O
+
+    if (r1 =="<h1>X</h1>" && r2=="<h1>X</h1>" && r3 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    else if (r4 =="<h1>X</h1>" && r5=="<h1>X</h1>" && r6 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    else if (r7 =="<h1>X</h1>" && r8=="<h1>X</h1>" && r9 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    if (r1 =="<h1>O</h1>" && r2=="<h1>O</h1>" && r3 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+    else if (r4 =="<h1>O</h1>" && r5=="<h1>O</h1>" && r6 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML ="You O Wins!!";
+        result();
+    }
+    else if (r7 =="<h1>O</h1>" && r8=="<h1>O</h1>" && r9 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+
+//vertical wins of X
+
+    else if (r1 =="<h1>X</h1>" && r4=="<h1>X</h1>" && r7 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    else if (r2 =="<h1>X</h1>" && r5=="<h1>X</h1>" && r8 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    else if (r3 =="<h1>X</h1>" && r6=="<h1>X</h1>" && r9 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+//vertical wins of O
+
+    else if (r1 =="<h1>O</h1>" && r4=="<h1>O</h1>" && r7 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+    else if (r2 =="<h1>O</h1>" && r5=="<h1>O</h1>" && r8 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+    else if (r3 =="<h1>O</h1>" && r6=="<h1>O</h1>" && r9 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+    
+//diagonal wins of X
+
+    else if (r1 =="<h1>X</h1>" && r5=="<h1>X</h1>" && r9 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    else if (r3 =="<h1>X</h1>" && r5=="<h1>X</h1>" && r7 == "<h1>X</h1>"){
+        document.getElementById("win").innerHTML = "You X Wins!!";
+        result();
+    }
+    
+//diagonal wins of O
+
+    else if (r1 =="<h1>O</h1>" && r5=="<h1>O</h1>" && r9 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+    else if (r3 =="<h1>O</h1>" && r5=="<h1>O</h1>" && r7 == "<h1>O</h1>"){
+        document.getElementById("win").innerHTML = "You O Wins!!";
+        result();
+    }
+    
+    
+};
+
+
+function result(){
+    setTimeout(function(){ alert("Restart game"); }, 500);
+    setTimeout(function(){ window.location.reload(); }, 800);
+    
+}
+
+function isOdd(c){
+    if (c%2 == 1){
+        return true;
+    }
+    else{
+        return false;
+    }
+
+}
+</script>
+
+</center>
+
+</body>
+
+</html>
